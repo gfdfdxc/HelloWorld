@@ -41,7 +41,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-
+    - name: Print GitHub Ref
+      run: echo "GitHub Ref: ${{ github.ref }}"
     - name: Download Ninja and CMake
       shell: cmake -P {0}
       run: |
@@ -240,7 +241,7 @@ jobs:
         name: ${{ matrix.config.artifact }}
 
   release:
-    if: contains(github.ref, 'tags/v')
+#     if: contains(github.ref, 'tags/v')
     runs-on: ubuntu-latest
     needs: build
 
@@ -266,7 +267,7 @@ jobs:
         name: upload_url
 
   publish:
-    if: contains(github.ref, 'tags/v')
+#     if: contains(github.ref, 'tags/v')
     name: ${{ matrix.config.name }}
     runs-on: ${{ matrix.config.os }}
     strategy:
