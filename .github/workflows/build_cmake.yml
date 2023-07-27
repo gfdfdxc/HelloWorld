@@ -234,7 +234,8 @@ jobs:
       run: |
         ls
         pwd
-        tree
+        ls build
+        ls instdir
 
     - name: Pack
       working-directory: instdir
