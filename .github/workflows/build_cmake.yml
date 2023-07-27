@@ -43,7 +43,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Print GitHub Ref
-      run: echo ${{ github.ref }}
+      run: echo ${{ github.ref }} ${{ github.ref_name }}
 
     - name: Download Ninja and CMake
       shell: cmake -P {0}
@@ -254,8 +254,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        tag_name: ${{ github.ref_name }}
+        release_name: Release ${{ github.ref_name }}
         draft: false
         prerelease: false
 
