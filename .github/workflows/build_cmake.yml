@@ -230,6 +230,11 @@ jobs:
     - name: Install Strip
       run: cmake --install build --prefix instdir --strip
 
+    - name: Print Directory
+      run: |
+        ls
+        pwd
+        tree
 
     - name: Pack
       working-directory: instdir
